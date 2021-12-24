@@ -1,3 +1,20 @@
-<div *ngIf=" (product$|async) as product">
-{{product|json}}
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Subcategory</th>
+      <th scope="col">Price</th>
+      <th scope="col">Popularity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of (product$ | async)?.products; let index = index">
+      <th scope="row">{{ index + 1 }}</th>
+      <td>{{ product?.title }}</td>
+      <td>{{ product?.subcategory }}</td>
+      <td>{{ product?.price }}</td>
+      <td>{{ product?.popularity }}</td>
+    </tr>
+  </tbody>
+</table>
